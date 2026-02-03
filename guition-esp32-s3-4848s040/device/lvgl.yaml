@@ -1056,7 +1056,7 @@ lvgl:
                   radius: 35px
                   bg_opa: TRANSP
                   border_width: 2
-                  border_color: 0xFFFFFF
+                  border_color: 0x7A7A7A
                   widgets:
                     - label:
                         text: "-"
@@ -1085,7 +1085,7 @@ lvgl:
                   radius: 35px
                   bg_opa: TRANSP
                   border_width: 2
-                  border_color: 0xFFFFFF
+                  border_color: 0x7A7A7A
                   widgets:
                     - label:
                         text: "+"
