@@ -1040,7 +1040,7 @@ lvgl:
               - label:
                   id: aircon_lab_target_label
                   text: "--°"
-                  text_font: roboto48_font
+                  text_font: roboto72_font
                   text_color: 0xFFFFFF
                   align: center
 
