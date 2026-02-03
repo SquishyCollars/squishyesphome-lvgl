@@ -153,6 +153,30 @@ sensor:
             args: [ 'x' ]
 
   # ===========================================================================
+  # SENSOR: Aircon Target Temperature
+  # ===========================================================================
+  # WHAT IT MONITORS:
+  #   Target/set temperature reported by the air conditioner
+  #   Watches: climate.office_air_conditioner (temperature)
+  #
+  # WHAT IT UPDATES:
+  #   The set temperature label inside the Aircon Set Temp button
+  #
+  # RELATED UI ELEMENT:
+  #   lvgl.yaml → aircon_set_temp_label
+  # ===========================================================================
+  - platform: homeassistant
+    entity_id: climate.office_air_conditioner
+    id: aircon_target_temperature
+    attribute: temperature
+    on_value:
+      - lvgl.label.update:
+          id: aircon_set_temp_label
+          text:
+            format: "%.1f°"
+            args: [ 'x' ]
+
+  # ===========================================================================
   # SENSOR: Centauri Carbon Print Progress
   # ===========================================================================
   # WHAT IT MONITORS:
@@ -372,6 +396,15 @@ binary_sensor:
             id: aircon_power_button
             state:
               checked: !lambda return x;
+        - lvgl.widget.update:
+            id: aircon_temp_up_button
+            hidden: !lambda return !x;
+        - lvgl.widget.update:
+            id: aircon_temp_down_button
+            hidden: !lambda return !x;
+        - lvgl.widget.update:
+            id: aircon_set_temp_button
+            hidden: !lambda return !x;
 
   # ===========================================================================
   # SENSOR: Battery Charger State

@@ -814,3 +814,115 @@ lvgl:
               - label:
                   align: bottom_left
                   text: "Temp"
+
+        # =========================================================================
+        # BUTTON: Aircon Temp Up
+        # =========================================================================
+        # WHAT THIS BUTTON DOES:
+        #   Increases the target temperature by 1°C.
+        #   Only shown when aircon power is ON.
+        #
+        # DATA SOURCE:
+        #   climate.office_air_conditioner (attribute: temperature)
+        # =========================================================================
+        - button: 
+            height: $button_height_single
+            width: $button_width
+            checkable: false
+            id: aircon_temp_up_button
+            styles: control
+            hidden: true
+            widgets:
+              - label:
+                  text_font: $icon_font
+                  align: top_left
+                  text: $aircon
+              - label:
+                  text_font: roboto17_font
+                  align: top_right
+                  text: "+1"
+              - label:
+                  align: bottom_left
+                  text: "Temp Up"
+            on_click:
+              - homeassistant.service:
+                  service: climate.set_temperature
+                  data:
+                    entity_id: climate.office_air_conditioner
+                    temperature: !lambda |-
+                      if (id(aircon_target_temperature).has_state()) {
+                        return id(aircon_target_temperature).state + 1.0f;
+                      }
+                      return 0.0f;
+
+        # =========================================================================
+        # BUTTON: Aircon Temp Down
+        # =========================================================================
+        # WHAT THIS BUTTON DOES:
+        #   Decreases the target temperature by 1°C.
+        #   Only shown when aircon power is ON.
+        #
+        # DATA SOURCE:
+        #   climate.office_air_conditioner (attribute: temperature)
+        # =========================================================================
+        - button: 
+            height: $button_height_single
+            width: $button_width
+            checkable: false
+            id: aircon_temp_down_button
+            styles: control
+            hidden: true
+            widgets:
+              - label:
+                  text_font: $icon_font
+                  align: top_left
+                  text: $aircon
+              - label:
+                  text_font: roboto17_font
+                  align: top_right
+                  text: "-1"
+              - label:
+                  align: bottom_left
+                  text: "Temp Down"
+            on_click:
+              - homeassistant.service:
+                  service: climate.set_temperature
+                  data:
+                    entity_id: climate.office_air_conditioner
+                    temperature: !lambda |-
+                      if (id(aircon_target_temperature).has_state()) {
+                        return id(aircon_target_temperature).state - 1.0f;
+                      }
+                      return 0.0f;
+
+        # =========================================================================
+        # BUTTON: Aircon Set Temperature
+        # =========================================================================
+        # WHAT THIS BUTTON DOES:
+        #   Displays the current target/set temperature.
+        #   Only shown when aircon power is ON.
+        #
+        # DATA SOURCE:
+        #   climate.office_air_conditioner (attribute: temperature)
+        # =========================================================================
+        - button: 
+            height: $button_height_single
+            width: $button_width
+            checkable: false
+            id: aircon_set_temp_button
+            styles: control
+            hidden: true
+            widgets:
+              - label:
+                  text_font: $icon_font
+                  align: top_left
+                  text: $aircon
+              - label:
+                  text_font: roboto36_font
+                  align: top_right
+                  id: aircon_set_temp_label
+                  text: "--°"
+                  text_color: 0xFFFFFF
+              - label:
+                  align: bottom_left
+                  text: "Set Temp"
