@@ -19,6 +19,7 @@ font:
       "\U000F1087",  # mdi-router-network
       "\U000F036B",  # mdi-message-video
       "\U000F0614",  # mdi-application-outline
+      "\U000F0141",  # mdi-chevron-left
       "\U000F089E",  # mdi-battery
       "\U000F07DE",  # mdi-filament
       "\U000F0317",  # mdi-lan
@@ -39,7 +40,7 @@ substitutions:
   network:        "\U000F1087"
   videocall:      "\U000F036B"
   application:    "\U000F0614"
+  chevron_left:   "\U000F0141"
   battery:        "\U000F089E"
   filament:       "\U000F07DE"
   lan:            "\U000F0317"
-

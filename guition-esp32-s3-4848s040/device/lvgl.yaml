@@ -497,12 +497,12 @@ lvgl:
             width: $button_width
             checkable: false
             id: blinds_back_button
-            styles: control
+            styles: control_dark
             widgets:
               - label:
                   text_font: $icon_font
                   align: top_left
-                  text: $application
+                  text: $chevron_left
               - label:
                   align: bottom_left
                   text: "Back"

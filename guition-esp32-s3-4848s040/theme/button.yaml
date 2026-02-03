@@ -1,12 +1,13 @@
 substitutions:
   icon_font: icon_font
-  text_font: roboto17_font
+  text_font: roboto19_font
   button_on_color: "0xFF8C00"
   button_text_color: "0xFFFFFF"
   button_control_color: "0x313131"
+  button_control_dark_color: "0x252525"
   button_webhook_color: "0x212121"
-  button_height_single: 103px
-  button_height_double: 216px
+  button_height_single: 110px
+  button_height_double: 230px
   button_width: 150px
   padding: 12px
   radius: 8px
@@ -21,6 +22,9 @@ lvgl:
 
     - id: control
       bg_color: $button_control_color
+      
+    - id: control_dark
+      bg_color: $button_control_dark_color
       
   theme:
     button:
