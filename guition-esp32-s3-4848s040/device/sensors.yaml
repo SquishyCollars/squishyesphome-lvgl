@@ -263,6 +263,9 @@ sensor:
           id: heating_track_arc
           value: !lambda return (int)roundf(x * 2.0f);
       - lvgl.arc.update:
+          id: heating_target_dot_arc
+          value: !lambda return (int)roundf(x * 2.0f);
+      - lvgl.arc.update:
           id: heating_delta_arc
           value: !lambda |-
             float tgt = x;
