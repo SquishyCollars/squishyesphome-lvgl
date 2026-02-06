@@ -238,7 +238,10 @@ sensor:
             format: "%.1f°C"
             args: [ 'x' ]
       - lvgl.arc.update:
-          id: heating_target_arc
+          id: heating_track_arc
+          value: !lambda return (int)roundf(x * 2.0f);
+      - lvgl.arc.update:
+          id: heating_delta_arc
           value: !lambda return (int)roundf(x * 2.0f);
 
 # =============================================================================
