@@ -1277,12 +1277,6 @@ lvgl:
                   clickable: true
                   adjustable: true
                   on_value:
-                    - homeassistant.service:
-                        service: climate.set_hvac_mode
-                        data:
-                          entity_id: climate.central_heating
-                          hvac_mode: heat
-                    - delay: 100ms
                     - lambda: |-
                         float v = (float)x / 2.0f;
                         if (v < 10.0f) v = 10.0f;
@@ -1327,11 +1321,7 @@ lvgl:
                           if (tgt_v < 20) tgt_v = 20;
                           if (tgt_v > 64) tgt_v = 64;
                           return cur_v < tgt_v ? cur_v : tgt_v;
-                    - homeassistant.service:
-                        service: climate.set_temperature
-                        data:
-                          entity_id: climate.central_heating
-                          temperature: !lambda return id(heating_target_setpoint);
+                    - script.execute: heating_send_setpoint
 
               # Mode label
               - label:
@@ -1399,12 +1389,6 @@ lvgl:
                         align: center
                         text_color: 0xB0B0B0
                   on_click:
-                    - homeassistant.service:
-                        service: climate.set_hvac_mode
-                        data:
-                          entity_id: climate.central_heating
-                          hvac_mode: heat
-                    - delay: 100ms
                     - lambda: |-
                         float v = id(heating_target_setpoint) - 0.5f;
                         if (v < 10.0f) v = 10.0f;
@@ -1449,11 +1433,7 @@ lvgl:
                           if (tgt_v < 20) tgt_v = 20;
                           if (tgt_v > 64) tgt_v = 64;
                           return cur_v < tgt_v ? cur_v : tgt_v;
-                    - homeassistant.service:
-                        service: climate.set_temperature
-                        data:
-                          entity_id: climate.central_heating
-                          temperature: !lambda return id(heating_target_setpoint);
+                    - script.execute: heating_send_setpoint
 
               # Up button (+0.5C)
               - button:
@@ -1474,12 +1454,6 @@ lvgl:
                         align: center
                         text_color: 0xB0B0B0
                   on_click:
-                    - homeassistant.service:
-                        service: climate.set_hvac_mode
-                        data:
-                          entity_id: climate.central_heating
-                          hvac_mode: heat
-                    - delay: 100ms
                     - lambda: |-
                         float v = id(heating_target_setpoint) + 0.5f;
                         if (v < 10.0f) v = 10.0f;
@@ -1524,8 +1498,4 @@ lvgl:
                           if (tgt_v < 20) tgt_v = 20;
                           if (tgt_v > 64) tgt_v = 64;
                           return cur_v < tgt_v ? cur_v : tgt_v;
-                    - homeassistant.service:
-                        service: climate.set_temperature
-                        data:
-                          entity_id: climate.central_heating
-                          temperature: !lambda return id(heating_target_setpoint);
+                    - script.execute: heating_send_setpoint

@@ -82,6 +82,20 @@ globals:
     initial_value: '0'
 
 # -----------------------------------------------------------------------------
+# SCRIPTS (Rate-limited Service Calls)
+# -----------------------------------------------------------------------------
+script:
+  - id: heating_send_setpoint
+    mode: restart
+    then:
+      - delay: 300ms
+      - homeassistant.service:
+          service: climate.set_temperature
+          data:
+            entity_id: climate.central_heating
+            temperature: !lambda return id(heating_target_setpoint);
+
+# -----------------------------------------------------------------------------
 # PSRAM (External Memory)
 # -----------------------------------------------------------------------------
 # The display requires extra memory for graphics. PSRAM is external RAM
