@@ -1272,10 +1272,10 @@ lvgl:
                     arc_width: 0
                   knob:
                     bg_color: 0xFFFFFF
-                    width: 26
-                    height: 26
-                    radius: 13
-                    border_width: 3
+                    width: 40
+                    height: 40
+                    radius: 20
+                    border_width: 4
                     border_color: 0xE06A2A
                   clickable: true
                   adjustable: true
