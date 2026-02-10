@@ -9,7 +9,7 @@ lvgl:
       - label:
           text: "-° / -°"
           id: temperatures
-          styles: roboto22_style
+          styles: clockbar_style
           align: top_left
           x: 8
           y: 6
@@ -19,7 +19,7 @@ lvgl:
       - label:
           text: "--:--"
           id: display_time
-          styles: roboto22_style
+          styles: clockbar_style
           align: top_mid
           x: 0
           y: 6
@@ -255,12 +255,12 @@ lvgl:
                   hidden: true
                   widgets:
                     - label:
-                        text_font: roboto36_font
+                        styles: stat_style
                         text_color: 0xFFFFFF
                         id: print_progress_label
                         text: "--"
                     - label:
-                        text_font: roboto20_font
+                        styles: label_style
                         text_color: 0xFFFFFF
                         text: "%"
               - label:
@@ -303,12 +303,12 @@ lvgl:
                   hidden: true
                   widgets:
                     - label:
-                        text_font: roboto36_font
+                        styles: stat_style
                         text_color: 0xFFFFFF
                         id: dryer_humidity_label
                         text: "--"
                     - label:
-                        text_font: roboto20_font
+                        styles: label_style
                         text_color: 0xFFFFFF
                         text: "%"
               - label:
