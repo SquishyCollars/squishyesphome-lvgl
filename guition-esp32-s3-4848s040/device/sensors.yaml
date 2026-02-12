@@ -60,8 +60,8 @@ sensor:
   #   lvgl.yaml → temperatures label (id: temperatures)
   # ===========================================================================
   - platform: homeassistant
-    entity_id: sensor.office_temperature
-    id: office_temperature
+    entity_id: sensor.office_temperature_temperature_2
+    id: office_temperature_temperature_2
     on_value:
       - lvgl.label.update:
           id: temperatures
@@ -92,8 +92,8 @@ sensor:
   #   lvgl.yaml → temperatures label (id: temperatures)
   # ===========================================================================
   - platform: homeassistant
-    entity_id: sensor.outdoor_temperature
-    id: outdoor_temperature
+    entity_id: sensor.vaskerom_temp_temperature
+    id: vaskerom_temp_temperature
     on_value:
       - lvgl.label.update:
           id: temperatures
@@ -142,8 +142,8 @@ sensor:
   #   lvgl.yaml → aircon_temp_label
   # ===========================================================================
   - platform: homeassistant
-    entity_id: climate.office_air_conditioner
-    id: aircon_current_temperature
+    entity_id: climate.air_conditioning
+    id: air_conditioning_temperature
     attribute: current_temperature
     on_value:
       - lvgl.label.update:
@@ -169,8 +169,8 @@ sensor:
   #   lvgl.yaml → aircon_set_temp_label
   # ===========================================================================
   - platform: homeassistant
-    entity_id: climate.office_air_conditioner
-    id: aircon_target_temperature
+    entity_id: climate.air_conditioning
+    id: air_conditioning_temperature
     attribute: temperature
     on_value:
       - lvgl.label.update:
@@ -307,8 +307,8 @@ text_sensor:
   #   lvgl.yaml → heating_lab_mode_label
   # ===========================================================================
   - platform: homeassistant
-    entity_id: climate.office_radiator_thermostat
-    id: heating_hvac_action
+    entity_id: sensor.air_conditioning_ac
+    id: air_conditioning_ac
     attribute: hvac_action
     on_value:
       - lvgl.label.update:
